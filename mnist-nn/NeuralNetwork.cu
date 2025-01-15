@@ -205,7 +205,7 @@ void NeuralNetwork::train(float* training_data, int* training_labels){
     float *d_hidden1 = NULL;
     float *d_hidden2 = NULL;
     float *d_output = NULL;
-    int *d_y_train =NULL;
+    int *d_y_train = NULL;
 
     CUDA_CHECK(cudaMalloc(&d_X_train, TRAIN_SIZE * INPUT_DIM * sizeof(float)));
     CUDA_CHECK(cudaMalloc(&d_hidden1, BATCH_SIZE * HIDDEN_SIZE * sizeof(float)));
