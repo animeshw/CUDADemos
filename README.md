@@ -1,35 +1,15 @@
-Forward Propagation (Solid Arrows)                                  Backward Propagation (Dashed Arrows)
+## Neural Network Architecture
 
-+-----------------+     +-----------------+     +-----------------+     +-----------------+     +-----------------+
-|   Input Layer   | --> | Hidden Layer 1  | --> | Hidden Layer 2  | --> |  Output Layer   | --> | Loss Function   |
-| (INPUT_DIM)     |     | (HIDDEN_SIZE)   |     | (HIDDEN_SIZE)   |     | (OUTPUT_DIM)    |     | (Cross-Entropy)|
-+-----------------+     +-----------------+     +-----------------+     +-----------------+     +-----------------+
+![NeuralNetwork](https://github.com/user-attachments/assets/92035ec2-f114-429f-96b6-9eb490bc38ec)
 
+## Setup
 
+1. Install cuda
+2. Extract mnist_data.zip into mnist-nn folder
+```bash
+cd mnist-nn
+nvcc -o app.exe main.cpp NeuralNetwork.cu kernels.cu
+```
 
-
-
-      ^                 ^                 ^                       ^                       ^
-      |                 |                 |                       |                       |
-      | Weights 1       | Weights 2       | Weights 3               |                       |
-      | (INPUT_DIM x   | (HIDDEN_SIZE x   | (HIDDEN_SIZE x           |                       |
-      |  HIDDEN_SIZE)  |  HIDDEN_SIZE)  |  OUTPUT_DIM)            |                       |
-      |                 |                 |                       |                       |
-      | Biases 1        | Biases 2        | Biases 3               |                       |
-      | (HIDDEN_SIZE)   | (HIDDEN_SIZE)   | (OUTPUT_DIM)            |                       |
-      v                 v                 v                       |                       |
-      |                 |                 |                       |                       |
-      | ReLU            | ReLU            | Softmax                 |                       |
-      | Activation      | Activation      | Activation              |                       |
-      +-----------------+     +-----------------+     +-----------------+                       |
-                                                                                                |
-                                                                                                |
-                                                                                                <--------------------------------------------------
-                                                                                                    | Gradient Calculation & Backpropagation
-                                                                                                    | (Gradients of Loss w.r.t. Weights and Biases)
-                                                                                                    |
-                                                                                                    v
-                                                                                                +-----------------+
-                                                                                                | Weight Updates  |
-                                                                                                | (using Gradients)|
-                                                                                                +-----------------+
+## Output
+![Output](https://github.com/user-attachments/assets/312eed53-87ad-42a0-a72b-07957dad2276)
